@@ -16,7 +16,7 @@ st.title("Modelo XGBoost - Métricas")
 accuracy = 0.7773109243697479
 roc_auc = 0.85
 
-st.write(f"**Acurácia:** {accuracy:.4f}")
+st.write(f"**Acurácia:** {accuracy:.2f}")
 st.write(f"**Curva ROC (AUC):** {roc_auc:.2f}")
 
 # Carrega o modelo
