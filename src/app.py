@@ -5,8 +5,21 @@ import os
 
 
 # Carrega o modelo
-caminho_modelo = r"C:\Users\camil\OneDrive\Área de Trabalho\Pessoal\Pós Graduação\Fase 5\github\model\modelo_risco.pkl"
-model = joblib.load(caminho_modelo)
+#caminho_modelo = r"C:\Users\camil\OneDrive\Área de Trabalho\Pessoal\Pós Graduação\Fase 5\github\model\modelo_risco.pkl"
+#model = joblib.load(caminho_modelo)
+
+# Caminho do diretório onde app.py está
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Caminho do modelo
+caminho_modelo = os.path.join(BASE_DIR, "../model/modelo_risco.pkl")
+
+# Carrega o modelo
+if os.path.exists(caminho_modelo):
+    model = joblib.load(caminho_modelo)
+    st.success("Modelo carregado com sucesso!")
+else:
+    st.error(f"Arquivo do modelo não encontrado: {caminho_modelo}")
 
 
 st.title("📊 Predição de Risco de Defasagem Escolar")
